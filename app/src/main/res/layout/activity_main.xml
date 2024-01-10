@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- activity_main.xml -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/scanButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scan"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp" />
-
-    <TextView
-        android:id="@+id/scanResultTextView"
-        android:layout_width="wrap_content"
+    <!-- スキャン結果を表示するためのRecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/scanResultsRecyclerView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/scanButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:text="Scan Result"
-        android:textSize="18sp" />
+        android:layout_margin="8dp"
+        android:background="@drawable/scan_results_border" />
 
+    <!-- プログレスバー -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -29,5 +21,14 @@
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-</RelativeLayout>
+    <!-- BLEスキャンの開始ボタン -->
+    <Button
+        android:id="@+id/scanButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#FFA07A"
+        android:text="Scan BLE Devices" />
 
+</RelativeLayout>
