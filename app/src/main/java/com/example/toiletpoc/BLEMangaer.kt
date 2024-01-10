@@ -9,11 +9,17 @@ class BLEMangaer {
     private val bluetoothAdapter: BluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
     private var scanCallback: ScanCallback? = null
 
-    fun startScan(onDeviceFound: (String, Int) -> Unit) {
+    fun startScan(onDeviceFound: (BLEDevice) -> Unit) {
         scanCallback = object : ScanCallback() {
             override fun onScanResult(callbackType: Int, result: ScanResult?) {
                 result?.device?.let { device ->
-                    onDeviceFound(device.address, result.rssi)
+                    val bleDevice = BLEDevice(
+                        name = device.name ?: "Unknown",
+                        rssi = result.rssi,
+                        address = device.address,
+                        isConnected = false // 仮の値、実際の接続状態を反映する必要がある
+                    )
+                    onDeviceFound(bleDevice)
                     Timber.d("Device found: ${device.address} with RSSI: ${result.rssi}")
                 }
             }

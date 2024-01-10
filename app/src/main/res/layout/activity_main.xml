@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/scanButton"
-        android:layout_margin="8dp"
+        android:layout_margin="10dp"
         android:background="@drawable/scan_results_border" />
 
     <!-- プログレスバー -->
@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
         android:background="#FFA07A"
         android:text="Scan BLE Devices" />
 
